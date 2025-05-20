@@ -1,0 +1,37 @@
+﻿@model CreateGameViewModel
+@{
+    ViewData["Title"] = "Yeni Oyun Ekle";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-white">Yeni Oyun Ekle</h2>
+
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Oyun İsmi</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Fiyat</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Hakkında</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="File" class="form-label">Görsel Yükle</label>
+            <input asp-for="File" type="file" class="form-control" />
+            <span asp-validation-for="File" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">İptal</a>
+    </form>
+</div>

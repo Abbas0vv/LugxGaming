@@ -1,0 +1,54 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="w-100" style="max-width: 500px;">
+        <h2 class="mb-4 text-center">Kayıt Ol</h2>
+
+        <form asp-action="Register" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Ad</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Surname" class="form-label">Soyad</label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">Kullanıcı Adı</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">E-posta</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Şifre</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label">Şifreyi Onayla</label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Kayıt Ol</button>
+                <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
