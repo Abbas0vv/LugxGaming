@@ -1,10 +1,12 @@
 ﻿using LugxGaming.Database.Interfaces;
 using LugxGaming.Database.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LugxGaming.Areas.Admin.Controllers;
 
 [Area(nameof(Admin))]
+[Authorize(Roles = "Admin")]
 public class DashboardController : Controller
 {
     private readonly IGameRepository _gameRepository;

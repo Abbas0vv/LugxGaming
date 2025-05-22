@@ -1,7 +1,7 @@
 ﻿using LugxGaming.Database.DomainModels;
 using LugxGaming.Database.Interfaces;
 using LugxGaming.Database.ViewModels;
-using LugxGaming.Extentions;
+using LugxGaming.Helpers.Extentions;
 
 namespace LugxGaming.Database.Repositories;
 

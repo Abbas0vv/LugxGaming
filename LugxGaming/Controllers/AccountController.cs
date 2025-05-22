@@ -54,4 +54,10 @@ public class AccountController : Controller
         await _userRepository.LogOutUser();
         return RedirectToAction("Index", "Home");
     }
+
+    public async Task<IActionResult> CreateRole()
+    {
+        await _userRepository.CreateRole();
+        return RedirectToAction("Index", "Home");
+    }
 }

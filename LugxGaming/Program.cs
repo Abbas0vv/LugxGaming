@@ -17,7 +17,7 @@ namespace LugxGaming
             builder.Services.AddDbContext<LugxDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddIdentity<LugxUser, LugxRole>()
+            builder.Services.AddIdentity<LugxUser, IdentityRole>()
                 .AddEntityFrameworkStores<LugxDbContext>();
 
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
