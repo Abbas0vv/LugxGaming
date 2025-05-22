@@ -3,6 +3,7 @@ using LugxGaming.Database.Interfaces;
 using LugxGaming.Database.ViewModels;
 using LugxGaming.Helpers.Enums;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace LugxGaming.Database.Repositories;
 
@@ -21,6 +22,7 @@ public class UserRepository : IUserRepository
 
     public async Task RegisterUser(RegisterViewModel model)
     {
+        var count = await _userManager.Users.CountAsync();
         var user = new LugxUser()
         {
             Name = model.Name,
@@ -32,7 +34,10 @@ public class UserRepository : IUserRepository
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-            await _userManager.AddToRoleAsync(user, Role.Admin.ToString());
+            if (count == 0)
+                await _userManager.AddToRoleAsync(user, Role.Admin.ToString());
+            else
+                await _userManager.AddToRoleAsync(user, Role.User.ToString());
 
             await _signInManager.SignInAsync(user, true);
         }
